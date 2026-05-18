@@ -1162,6 +1162,174 @@
       .nav-logo-name { font-size: 1.3rem; }
     }
 
+    /* ═══════════════════════════════════════
+       FOUNDER SECTION
+    ═══════════════════════════════════════ */
+    #founder { background: var(--charcoal); }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    /* Photo card */
+    .founder-photo-wrap {
+      position: relative;
+    }
+    .founder-photo-frame {
+      position: relative;
+      z-index: 1;
+    }
+    .founder-photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -1.2rem; left: -1.2rem;
+      right: 1.2rem; bottom: 1.2rem;
+      border: 1px solid var(--gold);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .founder-photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -1.2rem; right: -1.2rem;
+      top: 1.2rem; left: 1.2rem;
+      background: rgba(201,169,110,0.06);
+      z-index: 0;
+    }
+    .founder-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      position: relative;
+      z-index: 2;
+      filter: grayscale(20%);
+    }
+    .founder-name-plate {
+      position: absolute;
+      bottom: -1.5rem; left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 0.9rem 2.5rem;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 3;
+    }
+    .founder-name-plate strong {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: block;
+      line-height: 1.1;
+    }
+    .founder-name-plate span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    /* Text side */
+    .founder-content { }
+    .founder-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.5;
+      margin: 1.5rem 0 2rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+    }
+    .founder-bio p {
+      font-size: 0.92rem;
+      color: var(--muted-2);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+    .founder-bio p strong { color: var(--white); font-weight: 500; }
+
+    .founder-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .founder-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 0.9rem 1.4rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .founder-contact-item:hover {
+      border-color: var(--gold);
+      background: rgba(201,169,110,0.07);
+    }
+    .founder-contact-item .fc-icon {
+      font-size: 1.1rem;
+    }
+    .founder-contact-item .fc-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+    .founder-contact-item .fc-value {
+      font-size: 0.9rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .founder-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .founder-pillar {
+      border-top: 2px solid var(--gold);
+      padding-top: 1rem;
+    }
+    .founder-pillar .fp-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+    }
+    .founder-pillar .fp-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .founder-grid { grid-template-columns: 1fr; gap: 5rem; }
+      .founder-img { height: 380px; }
+      .founder-pillars { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .founder-img { height: 300px; }
+      .founder-pillars { grid-template-columns: 1fr 1fr; }
+      .founder-contact { flex-direction: column; }
+      .founder-contact-item { width: 100%; }
+    }
+
   </style>
 </head>
 <body>
@@ -1178,6 +1346,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#founder">Founder</a></li>
       <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -1192,6 +1361,7 @@
     <a href="#services"     onclick="closeMenu()">Services</a>
     <a href="#process"      onclick="closeMenu()">Process</a>
     <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+    <a href="#founder"      onclick="closeMenu()">Founder</a>
     <a href="#contact"      onclick="closeMenu()" class="mob-cta">Enquire Now</a>
   </div>
 
@@ -1601,6 +1771,95 @@
       </div>
     </div>
   </section>
+
+  <!-- ── FOUNDER ──────────────────────────────────────────────── -->
+  <section id="founder">
+    <div class="section-wrap">
+      <div class="founder-grid">
+
+        <!-- Photo -->
+        <div class="founder-photo-wrap reveal">
+          <div class="founder-photo-frame">
+            <img
+              class="founder-img"
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
+              alt="Naresh RV — Founder, Velvista Construction"
+            />
+          </div>
+          <div class="founder-name-plate">
+            <strong>Naresh RV</strong>
+            <span>Founder &amp; Managing Director</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="founder-content">
+          <div class="eyebrow reveal">The Visionary Behind Velvista</div>
+          <h2 class="section-title reveal" style="color:var(--white)">Meet Our <em>Founder</em></h2>
+
+          <blockquote class="founder-quote reveal">
+            "Every structure we build is a promise — to the land it stands on, and to the family it shelters."
+          </blockquote>
+
+          <div class="founder-bio reveal">
+            <p>
+              <strong>Naresh RV</strong> founded Velvista Construction with a single conviction: that great construction is inseparable from great integrity. With over 15 years of hands-on experience in residential and commercial development across Tamil Nadu, he has personally overseen more than 250 projects from groundbreaking to handover.
+            </p>
+            <p>
+              A civil engineering graduate with a sharp eye for detail, Naresh built Velvista from the ground up — beginning with small residential projects in Chennai and growing into one of the region's most respected construction names. His philosophy of <strong>zero compromise on quality</strong> is embedded in every Velvista project.
+            </p>
+            <p>
+              Beyond construction, Naresh is passionate about sustainable building practices and is actively pushing Velvista toward fully green-certified developments by 2027.
+            </p>
+          </div>
+
+          <!-- Contact cards -->
+          <div class="founder-contact reveal">
+            <a href="tel:+919626190363" class="founder-contact-item">
+              <span class="fc-icon">📞</span>
+              <div>
+                <span class="fc-label">Direct Line</span>
+                <span class="fc-value">+91 96261 90363</span>
+              </div>
+            </a>
+            <a href="https://wa.me/919626190363" target="_blank" class="founder-contact-item">
+              <span class="fc-icon">💬</span>
+              <div>
+                <span class="fc-label">WhatsApp</span>
+                <span class="fc-value">Chat with Naresh</span>
+              </div>
+            </a>
+            <a href="mailto:naresh@velvistaconstruction.com" class="founder-contact-item">
+              <span class="fc-icon">✉️</span>
+              <div>
+                <span class="fc-label">Email</span>
+                <span class="fc-value">naresh@velvistaconstruction.com</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Pillars -->
+          <div class="founder-pillars reveal">
+            <div class="founder-pillar">
+              <span class="fp-num">250<span style="font-size:1rem">+</span></span>
+              <span class="fp-label">Projects Led</span>
+            </div>
+            <div class="founder-pillar">
+              <span class="fp-num">15<span style="font-size:1rem">+</span></span>
+              <span class="fp-label">Years Experience</span>
+            </div>
+            <div class="founder-pillar">
+              <span class="fp-num">40<span style="font-size:1rem">+</span></span>
+              <span class="fp-label">Awards Won</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <!-- ── CONTACT ───────────────────────────────────────────── -->
   <section id="contact">
